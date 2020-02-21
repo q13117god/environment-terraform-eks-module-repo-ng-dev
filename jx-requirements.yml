@@ -1,7 +1,7 @@
 autoUpdate:
   enabled: false
   schedule: ""
-bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config
+bootConfigURL: https://github.com/q13117god/environment-terraform-eks-module-repo-ng-dev
 cluster:
   clusterName: terraform-eks-module-repo-ng
   devEnvApprovers:
