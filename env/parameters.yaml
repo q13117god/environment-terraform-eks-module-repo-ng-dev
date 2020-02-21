@@ -1,0 +1,10 @@
+adminUser:
+  password: local:terraform-eks-module-repo-ng/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: carlxie2015@gmail.com
+  token: local:terraform-eks-module-repo-ng/pipelineUser:token
+  username: q13117god
+prow:
+  hmacToken: local:terraform-eks-module-repo-ng/prow:hmacToken

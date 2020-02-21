@@ -1,0 +1,36 @@
+cluster:
+  clusterName: "terraform-eks-module-repo-NG"
+  environmentGitOwner: "q13117god"
+  environmentGitPublic: true
+  project: ""
+  provider: eks
+  zone: ""
+gitops: true
+environments:
+- key: dev
+- key: staging
+- key: production
+ingress:
+  domain: "jenkinsxboot.store.aws.z8s.io"
+  externalDNS: true
+  tls:
+    email: ""
+    enabled: false
+    production: false
+kaniko: false
+secretStorage: local
+storage:
+  logs:
+    enabled: false
+    url: ""
+  reports:
+    enabled: false
+    url: ""
+  repository:
+    enabled: false
+    url: ""
+versionStream:
+  ref: "master"
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: jenkins
+terraform: true

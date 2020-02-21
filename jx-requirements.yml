@@ -1,25 +1,66 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
-  provider: gke
-  zone: ""
-gitops: true
+  clusterName: terraform-eks-module-repo-ng
+  devEnvApprovers:
+  - q13117god
+  environmentGitOwner: q13117god
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  provider: eks
+  region: us-west-2
+  registry: 466869084057.dkr.ecr.us-west-2.amazonaws.com
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: jenkinsxboot.store.aws.z8s.io
+    externalDNS: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-terraform-eks-module-repo-ng-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-terraform-eks-module-repo-ng-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-terraform-eks-module-repo-ng-production
+gitops: true
 ingress:
-  domain: ""
-  externalDNS: false
+  domain: jenkinsxboot.store.aws.z8s.io
+  externalDNS: true
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
-kaniko: true
+repository: nexus
 secretStorage: local
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: false
     url: ""
@@ -29,7 +70,12 @@ storage:
   repository:
     enabled: false
     url: ""
+terraform: true
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.357
   url: https://github.com/jenkins-x/jenkins-x-versions.git
-webhook: prow
+webhook: jenkins
